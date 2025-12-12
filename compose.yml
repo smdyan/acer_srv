@@ -1,0 +1,16 @@
+name: acer
+services:
+  dokuwiki:
+    image: lscr.io/linuxserver/dokuwiki:latest
+    container_name: dokuwiki
+    environment:
+      - PUID=1001
+      - PGID=1001
+      - TZ=europe/moscow
+    volumes:
+      - /vlm_docker/dokuwiki/config:/config    
+    networks:
+      twg4_mynet:
+        ipv4_address: 172.24.0.14
+    restart: unless-stopped
+
