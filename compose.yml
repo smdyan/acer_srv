@@ -10,7 +10,11 @@ services:
     volumes:
       - /vlm_docker/dokuwiki/config:/config    
     networks:
-      twg4_mynet:
+      mynet:
         ipv4_address: 172.24.0.14
     restart: unless-stopped
 
+networks:
+  mynet:
+    name: twg4_mynet
+    external: true
