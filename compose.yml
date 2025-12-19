@@ -1,17 +1,17 @@
 name: acer
 services:
   dokuwiki:
-    image: lscr.io/linuxserver/dokuwiki:latest
+    image: lscr.io/linuxserver/dokuwiki:latest            # https://github.com/linuxserver/docker-dokuwiki
     container_name: dokuwiki
     environment:
-      - PUID=1001
-      - PGID=1001
+      - PUID=1000
+      - PGID=1000
       - TZ=europe/moscow
     volumes:
       - /vlm_docker/dokuwiki/config:/config
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
+    # cap_add:
+    #   - NET_ADMIN
+    #   - SYS_MODULE
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
@@ -22,5 +22,5 @@ services:
 
 networks:
   mynet:
-    name: twg4_mynet
+    name: mynet
     external: true
